@@ -1,0 +1,16 @@
+💻🎄💻 Advent of Code 2022 💻🎄💻
+=================================
+
+This year, I'm using the AoC puzzles as a chance to learn Go and get some practice with it. I'll be using this Readme as a blog of sorts about the experience.
+
+**Day 1:** I started out with the [Getting Started](https://go.dev/doc/tutorial/getting-started) page and then moved on to the [Tour of Go](https://go.dev/tour/). I was already familiar with C at a high level, so this wasn't too crazy. I liked that there are a few more things built in than C. I had a little trouble wrapping my head around the go.mod files and the ways packages export functions and how you call them from other functions. I thought I might use like a "utilities" library for the puzzles as times goes on, but opted just to do one folder per day and have a main package in each. The puzzle itself was pretty simple, but I did have to go searching for the file reading APIs in Go. I was happy to see that they were pretty straightforward.
+
+**Day 2:** I used an slice of slices to make myself a matrix, and I got a little more familiar with the 'strings' library. I particularly liked my solution to part 2, where I made a matrix of strategies that told me what to play depending on the outcome we wanted.
+
+**Day 3:** I spent a silly amount of time trying to find the bufio API that would let me manually step through the lines of a text file before realizing that that's what the scanner.Scan() in the for loop did. I don't know if this is totally necessary or not, but I ended up grabbing an external library to make it easy to get the keys of a map in an array. I miss Python :(
+
+**Day 4:** Not a ton to say about this one; string manipulation is a little more verbose in Go compared to Python, and I miss list comprehensions. The biggest road block was me misreading the prompt and returning the number of pairs with no overlap instead of the number of pairs with overlap in part 2.
+
+**Day 5:** A little bit of a thinker! I pretty quickly came to understand that this was about popping and pushing values onto stacks (thanks to the puzzle literally using stacks as the flavor). That led me to realize that I either needed to implement my own Stack 'class' in Go, find someone who already did and import it, or hack together an approximation of a stack with the array/slice built-ins. I opted to use someone elses implementation because I'm lazy, and I was a little surprised to find that there wasn't a standard one that everybody uses. Does everyone who needs a stack in Go write their own? Or copy the same answer off Stack Overflow every time? It seems weird to me that there's not a pseudo-standard collections package that gives you all the Stack, Queue, etc stuff you might want. That's one thing that I love about Python. I ended up using [CookieJar](https://github.com/karalabe/cookiejar), which seems like it was created for programming competitions. Very strange.
+
+Anyways, the actual puzzle was pretty fun. I liked my solution to parsing the input image of pushing each line onto a stack as I read it, then popping the lines off populate the individual stacks. That made it easy to account for the varying heights of the stacks. The other gotcha was remembering to decrement the source and target indices in the instructions to line up with my array of stacks.

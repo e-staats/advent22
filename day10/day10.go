@@ -31,8 +31,8 @@ func main() {
 	fmt.Printf("\n")
 
 	start = time.Now()
-	result = part2(lines)
-	fmt.Printf("Part 2: %d\n", result)
+	fmt.Printf("Part 2:\n")
+	part2(lines)
 	duration = time.Since(start)
 	fmt.Println(duration)
 }
@@ -73,7 +73,7 @@ func part1(lines []string) int {
 	return output
 }
 
-func part2(lines []string) int {
+func part2(lines []string) {
 	cycle := 0
 	register := 1
 	var adding bool
@@ -113,19 +113,4 @@ func part2(lines []string) int {
 			adding = true
 		}
 	}
-	return output
-}
-
-type Directory struct {
-	name     string
-	size     int
-	parent   *Directory
-	children []*Directory
-}
-
-func new_dir(name string) *Directory {
-	result := new(Directory)
-	result.name = name
-	result.size = 0
-	return result
 }
